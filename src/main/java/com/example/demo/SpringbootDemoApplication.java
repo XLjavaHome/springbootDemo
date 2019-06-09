@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created with IntelliJ IDEA.1.在src/main/resources下新建一个banner.txt文档
@@ -20,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * To change this template use File | Settings | File Templates.
  */
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@RestController
+//@RestController
 public class SpringbootDemoApplication {
     @Value(value = "${book.author}")
     private String bookAuthor;
@@ -46,8 +44,4 @@ public class SpringbootDemoApplication {
         builder.bannerMode(Banner.Mode.OFF).run(args);
     }
 
-    @RequestMapping(value = "/", produces = "text/plain;charset=UTF-8")
-    String index() {
-        return "Hello Spring Boot! The BookName is " + bookName + ";and Book Author is " + bookAuthor + ";and Book PinYin is " + bookPinYin;
-    }
 }
